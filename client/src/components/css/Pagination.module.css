@@ -1,0 +1,60 @@
+:root{
+    --border-green: black;
+    --fondo-boton: rgb(0, 162, 232);
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+.number {
+    background-color: var(--fondo-boton) ;
+    color: black;
+    cursor: pointer;
+    border-color: var(--border-green);
+    font-size: 14px;
+    margin: 0px 1px;
+}
+.select{
+    background-color:  black ;
+    border-color: var(--border-green);
+    color: white;
+}
+
+.number:hover{
+    background-color:  black ;
+    border-color: rgb(0, 0, 0);
+    color: white;
+}
+
+h2{
+    margin: 0px;
+    color: white;
+    font-size: 30px;
+}
+.flecha1{
+    border-radius: 8px 0px 0px 8px;
+    cursor: pointer;
+    background-color: var(--fondo-boton);
+    border-color: var(--border-green);
+    color: black;
+    font-size: 14px;
+}
+.flecha1:hover{
+    background-color:  black ;
+    border-color: black;
+    color: white;
+}
+.flecha2{
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+    background-color: var(--fondo-boton);
+    border-color: var(--border-green);
+    color: black;
+    font-size: 14px;
+}
+.flecha2:hover{
+    background-color:  black ;
+    border-color: black;
+    color: white;
+}

@@ -1,0 +1,55 @@
+.cardDog{
+    width: 30rem;    
+    display: flex;
+    flex-direction: row;
+    border: solid 3px black;
+    margin: 10px 20px; 
+    border-radius: 10px;
+    background-image: url('./../../img/paisaje.jpg');
+    /* background-repeat: repeat ; */
+    background-size: cover;
+    cursor: pointer;
+}
+
+.imgDog{
+    height: 20rem;
+    width: 20rem;
+    object-fit:fill;
+    border-radius: 8px 0px 10px 8px;
+}
+
+.direction1{
+    display: flex;
+    flex-direction: column;
+}
+
+.name{
+    margin: -21px 0px 0px 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.651);
+    border-radius: 0px 0px 10px 6px;
+    padding: 0px 0px 0px 10px;
+}
+
+.direction2{
+    display: flex;
+    /* justify-content: start; */
+    flex-direction: column;
+    padding: 0px 0px 0px 10px;
+}
+
+.el{
+    background-color:  rgba(0, 0, 0, 0.651) ;
+    border-radius: 5px;
+    padding: 2px;
+    color: white;
+    margin: 10px 0px;
+}
+
+.temperament{
+    margin: 3px 0px;
+    background-color: rgba(0, 0, 0, 0.651);
+    color: white;
+    padding: 0px 0px 0px 5px;
+    border-radius: 3px;
+}

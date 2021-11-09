@@ -1,0 +1,30 @@
+.divHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.direction{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+}
+.order{
+    /* display: flex;
+    height: 20px;
+    margin: 0px 50vh; */
+    background-color: rgba(0, 0, 0, 0.507);
+    border: 2px solid black;
+    border-radius: 25px;
+    color: white;
+    font-family: "Muli", sans-serif;
+    font-size: 16px;
+    height: 30px;
+    outline: none;
+    margin: 0px 15vh;
+    padding: 0px 20px;
+    width: 240px;
+    content: white ;
+}
+.option{
+    background-color: rgba(0, 0, 0, 0.452);
+}
