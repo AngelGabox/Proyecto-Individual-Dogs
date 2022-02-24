@@ -17,9 +17,8 @@ const CreateRace = () => {
         ageMax:'',
         temp: ''
     })
-    const handleElim = (e) => {
-        e.preventDefault();
-        dispatch(unmountTemps())
+    const handleElim = (data) => {
+        dispatch(unmountTemps(data))
     }
     const handleOnSubmitTemp = (e) => {
         e.preventDefault();
@@ -79,7 +78,7 @@ const CreateRace = () => {
                 <button className={styles.crear}>Crear</button>
             </form>
             <div className={styles.form1}>
-                <label style={{fontSize:'20px', margin: '0px 0px 0px 50%'}}>temperamentos</label>
+                <label style={{fontSize:'20px'}}>Temperaments</label>
                 <div className={styles.orden}>
                 <select className={styles.select2} name="temp" onChange={handleChange} value={values.temp}>
                     <option value=''>-</option>
@@ -90,9 +89,9 @@ const CreateRace = () => {
                         }
                 </select>
                 <button className={styles.sum} onClick={handleOnSubmitTemp}>+</button>
-                <button className={styles.sum} onClick={handleElim}>eliminar</button>
+                <div className={styles.info} onClick={()=>alert('Clickea en el temperamento para removerlo')}>!</div>
                 </div>
-            <div>{tempsForDog.map(el => (<li className={styles.li}>♥ {el}</li>))}</div>
+            <div>{tempsForDog.map(el => (<li className={styles.li} onClick={()=>handleElim(el)}>♥ {el}</li>))}</div>
             </div>
         </div>
     )

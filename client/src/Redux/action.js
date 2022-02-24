@@ -9,6 +9,7 @@ export const UNMOUNT_TEMPS= 'UNMOUNT_TEMPS'
 export const UNMOUNT_DOGS = 'UNMOUNT_DOGS'
 export const BY_ORDER = 'BY_ORDER'
 export const BY_ID = 'BY_ID'
+export const BY_WEIGHT = 'BY_WEIGHT'   
 
 export const getAllDogs = () => dispatch => {
     try {
@@ -30,6 +31,14 @@ export const byName = name => dispatch => {
     try {
         return axios.get(`http://localhost:3001/dogs?name=${name}`)
             .then(res => dispatch({type: BY_NAME, payload: res.data}))
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const byWeight = weight => dispatch => {
+    try {
+        return axios.get(`http://localhost:3001/dogs?weight=${weight}`)
+            .then(res => dispatch({type: BY_WEIGHT, payload: res.data}))
     } catch (error) {
         console.log(error)
     }
@@ -65,5 +74,5 @@ export const getTemps = () => dispatch => {
 export const byOrder = payload => ({type: BY_ORDER, payload })
 
 export const tempForDog  = payload => ({type:TEMP_FOR_DOG, payload})
-export const unmountTemps = () => ({type:UNMOUNT_TEMPS})
+export const unmountTemps = (data) => ({type:UNMOUNT_TEMPS, payload: data})
 export const unmountDogs = () => ({type:UNMOUNT_DOGS})

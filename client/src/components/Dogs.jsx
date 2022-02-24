@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react' 
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
-import { getAllDogs, byName, getTemps } from '../Redux/action'
+import { getAllDogs, byName, getTemps, byWeight } from '../Redux/action'
 import Pagination from './Pagination'
 import DogCard from './DogCard'
 import DogsCards from './DogsCards'
@@ -12,10 +12,12 @@ const Dogs = () => {
     const dispatch = useDispatch()  
     const { dogs } = useSelector(state => state);
     const name = query.get('name')
+    const weight = query.get('weight')
     const from = parseInt(query.get('from'))
     useEffect(() => {
         dispatch(getTemps())
         name? dispatch(byName(name))
+        :weight? dispatch(byWeight(weight))
         : dispatch(getAllDogs()) 
         // console.log('--->dogs: ', dogs.length)
     }, [dispatch, name])   
@@ -32,7 +34,7 @@ const Dogs = () => {
                 }
                 </div>
             )          
-            :name?(
+            :name || weight?(
                 <div className={styles.dog}>
                     <div className={styles.direction}>                        
                         <div className={styles.content}>

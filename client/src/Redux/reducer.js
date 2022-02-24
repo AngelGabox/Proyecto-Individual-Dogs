@@ -8,7 +8,8 @@ import {
     GET_TEMPS,
     UNMOUNT_DOGS,
     BY_ORDER,
-    BY_ID
+    BY_ID,
+    BY_WEIGHT
 } from './action'
 
 const initialState = {
@@ -45,6 +46,16 @@ const rootReducer = (state = initialState, action) => {
                     }
                 })
             }
+        case BY_WEIGHT: 
+            return{
+                ...state,
+                dogs: action.payload.map(p => {
+                    return {
+                        ...p,
+                        promedio: parseFloat(p.weight.replace(' - ', '.'))
+                    }
+                })
+            }
         case BY_TEMP: 
             return{
                 ...state,
@@ -68,7 +79,7 @@ const rootReducer = (state = initialState, action) => {
         case UNMOUNT_TEMPS:
             return{
                 ...state,
-                tempsForDog: []
+                tempsForDog: state.tempsForDog.filter(el => el !== action.payload)
             }
         case GET_TEMPS: 
             return{

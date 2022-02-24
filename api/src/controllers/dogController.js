@@ -71,7 +71,7 @@ const dogXId = async(req, res, next) =>{
 } 
 const getDogs = async(req, res, next) => {
     try {
-        let { name, temperament } = req.query  
+        let { name, temperament, weight } = req.query  
         let dogs = await allDog()
 
         if(name && name !== '') {
@@ -79,7 +79,13 @@ const getDogs = async(req, res, next) => {
             dogs.length ? 
             dogs :
             res.status(404).send("No existe esta raza 😕😔 o escribiste mal su nombre 😅");
-        }else if(temperament){
+        }else if(weight){
+            dogs = await dogs.filter(c => c.weight.toLowerCase().includes(weight.toLocaleLowerCase()))
+            dogs.length ? 
+            dogs :
+            res.status(404).send("No existe esta raza 😕😔 o escribiste mal su nombre 😅");
+        }
+        else if(temperament){
             // console.log('-----> actividad:', actividad)
             // el.toLowerCase().includes(temperament.toLocaleLowerCase())   
             dogs = await dogs.filter(c => c.temperaments?.includes(temperament))
@@ -111,7 +117,7 @@ const getDogs = async(req, res, next) => {
           id: uuid(),
           name,
           height: `${hMin}-${hMax}`,
-          weight: `${wMin}-${wMax}`,
+          weight: `${wMin} - ${wMax}`,
           age: `${ageMin}-${ageMax}`
         }
         const newPerris = await Dog.create(perris)

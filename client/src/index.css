@@ -3,7 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  background-image: url('./img/huellitas.jpg');
+  background-color:rgba(0, 162, 232, 0.301);
   background-size: contain;
   /* background-repeat: repeat; */
   -webkit-font-smoothing: antialiased;

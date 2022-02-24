@@ -38,7 +38,7 @@ const handleActivity = (e) => {
                 </select>
             }
             {
-                temps.length>0 &&
+                temps.length>0 && dogs.length > 1 &&
                 <select className={styles.order} onChange={handleActivity} >
                     <option className={styles.option} value="">Temperamento</option>
                     {
