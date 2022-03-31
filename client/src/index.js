@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import dotenv from 'dotenv'
+import axios from 'axios';
+dotenv.config()
+
+axios.defaults.baseURL = 'https://back-project-dogs.herokuapp.com/' 
 
 ReactDOM.render(
   <React.StrictMode>

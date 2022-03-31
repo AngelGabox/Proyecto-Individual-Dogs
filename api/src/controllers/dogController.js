@@ -34,28 +34,31 @@ const dogsXApi = async() => {
 }
 
 const dogsXDb = async() => {
-    return await Dog.findAll({
-        include: {
-            model: Temperament,
-            attributes: ['name', 'id'],
-            through: { 
-                attributes: []
+    try {
+        
+        return await Dog.findAll({
+            include: {
+                model: Temperament,
+                attributes: ['name', 'id'],
+                through: { 
+                    attributes: []
+                }
             }
+        });
+        } catch (error) {
+            consolge.log(error)
         }
-    });
-}
-
-const allDog = async() =>{
-    // const dogsA = ( await dogsXApi() ).map(p => {
-    //     return {
-    //         ...p,
-    //         promedio: parseFloat(p.weight)
-    //     }
-    // })
-    const dogsA = await dogsXApi()
-    const dogsDb = await dogsXDb()
-    const allInfo = dogsA.concat(dogsDb)
-    return allInfo
+    }
+    
+    const allDog = async() =>{
+    try {
+        const dogsA = await dogsXApi()
+        const dogsDb = await dogsXDb()
+        const allInfo = dogsA.concat(dogsDb)
+        return allInfo
+    } catch (error) {
+        console.log(error)
+    }
 }
 const dogXId = async(req, res, next) =>{
     try {

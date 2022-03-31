@@ -13,7 +13,7 @@ export const BY_WEIGHT = 'BY_WEIGHT'
 
 export const getAllDogs = () => dispatch => {
     try {
-        return axios.get('http://localhost:3001/dogs')
+        return axios.get('/dogs')
         .then(res => dispatch({type: GET_ALL_DOGS, payload: res.data}))
     } catch (error) {
         console.log(error)
@@ -21,7 +21,7 @@ export const getAllDogs = () => dispatch => {
 }
 export const byId = id => dispatch => {
     try {
-        return axios.get(`http://localhost:3001/dogs/${id}`)
+        return axios.get(`/dogs/${id}`)
         .then(res => dispatch({type: BY_ID, payload: res.data}))
     } catch (error) {
         console.log(error)
@@ -29,7 +29,7 @@ export const byId = id => dispatch => {
 }
 export const byName = name => dispatch => {
     try {
-        return axios.get(`http://localhost:3001/dogs?name=${name}`)
+        return axios.get(`/dogs?name=${name}`)
             .then(res => dispatch({type: BY_NAME, payload: res.data}))
     } catch (error) {
         console.log(error)
@@ -37,7 +37,7 @@ export const byName = name => dispatch => {
 }
 export const byWeight = weight => dispatch => {
     try {
-        return axios.get(`http://localhost:3001/dogs?weight=${weight}`)
+        return axios.get(`/dogs?weight=${weight}`)
             .then(res => dispatch({type: BY_WEIGHT, payload: res.data}))
     } catch (error) {
         console.log(error)
@@ -46,7 +46,7 @@ export const byWeight = weight => dispatch => {
 
 export const byTemp = temp => dispatch => {
     try {
-        return axios.get(`http://localhost:3001/dogs?temperament=${temp}`)
+        return axios.get(`/dogs?temperament=${temp}`)
             .then(res => dispatch({type: BY_TEMP, payload: res.data}))
     } catch (error) {
         console.log(error)
@@ -55,7 +55,7 @@ export const byTemp = temp => dispatch => {
 
 export const createRace = values => dispatch => {
     try{
-        return axios.post('http://localhost:3001/dogs/add', {...values})
+        return axios.post('/dogs/add', {...values})
             .then(res => {
                 return dispatch({type:CREATE_RACE, payload: res.data})})
     }catch(err){
@@ -65,7 +65,7 @@ export const createRace = values => dispatch => {
 
 export const getTemps = () => dispatch => {
     try {
-        return axios.get(`http://localhost:3001/temperaments`)
+        return axios.get(`/temperaments`)
             .then(res => dispatch({type: GET_TEMPS, payload: res.data}))
     } catch (error) {
         console.log(error)

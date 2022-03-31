@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 // const { preloadDogs} = require('./src/controllers/dogController');
 const { preloadTemps } = require('./src/controllers/tempController.js');
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(3001, async() => {
     console.log('%s Cargando ...')
     const preloadT = await preloadTemps()
