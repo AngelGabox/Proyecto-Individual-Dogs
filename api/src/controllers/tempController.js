@@ -3,12 +3,14 @@ const axios =  require('axios')
 
 const preloadTemps = async() => {
     try {
+        ///precargamos los temperamentos
         const {data} = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
     let temperaments = data.map(d => d.temperament? d.temperament.split(', '): null)
     // console.log('----> TEMPERAMENTS:', temperaments)
     const temperaments_Db = await Temperament.findAll()
-    if(temperaments_Db.legnth===0){
+    if(temperaments_Db.length===0){
         temperaments = temperaments.flat()
+        // console.log(temperaments)
         await Promise.all(temperaments.map(t => Temperament.findOrCreate({where: { name: t }})))
         return 'Se cargaron lo temperamentos exitosamente'
     }else{
