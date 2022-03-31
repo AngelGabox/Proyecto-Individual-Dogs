@@ -5,10 +5,15 @@ const preloadTemps = async() => {
     try {
         const {data} = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
     let temperaments = data.map(d => d.temperament? d.temperament.split(', '): null)
-    temperaments = temperaments.flat()
-    temperaments = await Promise.all(temperaments.map(t => Temperament.findOrCreate({where: { name: t }})))
     // console.log('----> TEMPERAMENTS:', temperaments)
-    return 'Se cargaron lo temperamentos exitosamente'
+    const temperaments_Db = await Temperaments.findAll()
+    if(temperaments_Db.legnth===0){
+        temperaments = temperaments.flat()
+        await Promise.all(temperaments.map(t => Temperament.findOrCreate({where: { name: t }})))
+        return 'Se cargaron lo temperamentos exitosamente'
+    }else{
+        return `it's Ok`
+    }
     } catch (error) {
         console.log(error)
         return 'No se pudieron cargar los temperamentos'
