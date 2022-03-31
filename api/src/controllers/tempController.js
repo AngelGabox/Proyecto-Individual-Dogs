@@ -6,7 +6,7 @@ const preloadTemps = async() => {
         const {data} = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`)
     let temperaments = data.map(d => d.temperament? d.temperament.split(', '): null)
     // console.log('----> TEMPERAMENTS:', temperaments)
-    const temperaments_Db = await Temperaments.findAll()
+    const temperaments_Db = await Temperament.findAll()
     if(temperaments_Db.legnth===0){
         temperaments = temperaments.flat()
         await Promise.all(temperaments.map(t => Temperament.findOrCreate({where: { name: t }})))
