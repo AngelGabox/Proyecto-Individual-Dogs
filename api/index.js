@@ -19,17 +19,14 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-// const { preloadDogs} = require('./src/controllers/dogController');
 const { preloadTemps } = require('./src/controllers/tempController.js');
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(3001, async() => {
+  server.listen(process.env.PORT || 3001, async() => {
     try {
       console.log('%s Cargando ...')
       const preloadT = await preloadTemps()
       console.log('%s ' + preloadT)
-      // const preloadD = await preloadDogs()
-      // console.log('%s ' + preloadD)
       console.log('%s listening at 3001'); // eslint-disable-line no-console
     } catch (error) {
       console.log(error) 
