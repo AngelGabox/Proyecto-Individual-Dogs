@@ -21,7 +21,7 @@ const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const { preloadTemps } = require('./src/controllers/tempController.js');
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(process.env.PORT || 3001, async() => {
     try {
       console.log('%s Cargando ...')
