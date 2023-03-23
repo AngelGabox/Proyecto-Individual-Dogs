@@ -7,8 +7,7 @@ import dotenv from 'dotenv'
 import axios from 'axios';
 dotenv.config()
 
-// axios.defaults.baseURL = process.env.REACT_URL_API || 'http://localhost:3001' 
-axios.defaults.baseURL = 'http://localhost:3001' 
+axios.defaults.baseURL = process.env.REACT_URL_API || 'https://back-proyecto-individual-dogs-production-97a7.up.railway.app-dogs.herokuapp.com' 
 
 ReactDOM.render(
   <React.StrictMode>
