@@ -24,7 +24,7 @@ const rootReducer = (state = initialState, action) => {
         return{
             ...state,
             allDogs: action.payload,
-            dogs: action.payload.map(p => {
+            dogs: action.payload.map( p => {
                 return {
                     ...p,
                     promedio: parseFloat(p.weight.replace(' - ', '.'))

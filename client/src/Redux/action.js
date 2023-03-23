@@ -11,10 +11,12 @@ export const BY_ORDER = 'BY_ORDER'
 export const BY_ID = 'BY_ID'
 export const BY_WEIGHT = 'BY_WEIGHT'   
 
-export const getAllDogs = () => dispatch => {
+export function getAllDogs () {
     try {
-        return axios.get('/dogs')
-        .then(res => dispatch({type: GET_ALL_DOGS, payload: res.data}))
+       return async (dispatch) => {
+        const {data} = await axios.get('/dogs')
+        dispatch({type: GET_ALL_DOGS, payload: data})
+       }
     } catch (error) {
         console.log(error)
     }

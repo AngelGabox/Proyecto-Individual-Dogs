@@ -13,8 +13,8 @@ const SearchBar = () => {
         
     return (
         <div className={styles.container}>
-            <input className={styles.search} onChange={({target:{value}}) => setName(value)} value={name} type="text" placeholder='Shearch...' />
-            <button className={styles.botone} onClick={handleOnClick}>Buscar Raza</button>        
+            <input className={styles.search} onChange={({target:{value}}) => setName(value)} value={name} type="text" placeholder='Search...' />
+            <button className={styles.botone} onClick={handleOnClick}>🔍</button>        
         </div>
     )
 }

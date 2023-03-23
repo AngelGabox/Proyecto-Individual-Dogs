@@ -7,7 +7,7 @@ import dotenv from 'dotenv'
 import axios from 'axios';
 dotenv.config()
 
-axios.defaults.baseURL = process.env.REACT_URL_API 
+// axios.defaults.baseURL = process.env.REACT_URL_API 
 
 ReactDOM.render(
   <React.StrictMode>
