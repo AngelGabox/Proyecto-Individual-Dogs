@@ -15,6 +15,7 @@ export function getAllDogs () {
     try {
        return async (dispatch) => {
         const {data} = await axios.get('/dogs')
+        // console.log(data);
         dispatch({type: GET_ALL_DOGS, payload: data})
        }
     } catch (error) {

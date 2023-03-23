@@ -5,10 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import dotenv from 'dotenv'
 import axios from 'axios';
-dotenv.config()
-
-// axios.defaults.baseURL = process.env.REACT_URL_API 
-
+// const {REACT_URL_API}= process.env
+axios.defaults.baseURL = 'https://proyecto-individual-dogs-production-97a7.up.railway.app'
+// axios.defaults.baseURL = process.env.REACT_URL_API
 ReactDOM.render(
   <React.StrictMode>
     <App />
